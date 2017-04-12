@@ -26,7 +26,33 @@ def login(request):
 
 
 def signup(request):
-	return render(request, 'sistema_usuario/signup.html', {})
+	if request.method == 'POST':
+		#POST
+		nome = request.POST['nome']
+		sobrenome = request.POST['sobrenome']
+		email = request.POST['email']
+		nome_usuario = request.POST['nome_usuario']
+		senha = request.POST['senha']
+		confirmar_senha = request.POST['confirmar_senha']
+		if senha == confirmar_senha:
+			# Fazer Cadastro
+			user = User.objects.create_user(nome_usuario, email, senha)
+			user.first_name = nome
+			user.last_name = sobrenome
+			user.save()
+			user = authenticate(username=nome_usuario, password=senha)
+			if user is not None:
+				auth_login(request, user)
+				return HttpResponseRedirect('/')
+			else:
+				return render(request, 'sistema_usuario/signup.html', {'erro':'Algo deu muito errado.'})
+		else:
+			return render(request, 'sistema_usuario/signup.html', {'erro':'As senhas não conferem.'}) 
+
+	
+	else:
+		# GET
+		return render(request, 'sistema_usuario/signup.html', {})
 
 
 def logout(request):
