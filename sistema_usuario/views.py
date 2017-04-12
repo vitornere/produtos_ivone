@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.models import User
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 # Create your views here.
 
@@ -34,6 +36,10 @@ def signup(request):
 		nome_usuario = request.POST['nome_usuario']
 		senha = request.POST['senha']
 		confirmar_senha = request.POST['confirmar_senha']
+		try:
+			validate_email(email)
+		except ValidationError:
+			return render(request, 'sistema_usuario/signup.html', {'erro':'Email inválido'})
 		if senha == confirmar_senha:
 			# Fazer Cadastro
 			user = User.objects.create_user(nome_usuario, email, senha)
