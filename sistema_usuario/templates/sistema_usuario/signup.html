@@ -1,0 +1,71 @@
+{% extends "produtos_ivone/base.html" %}
+
+{% block content %}
+	<h1 style="text-align:center">Cadastro</h1>
+
+	<div class="container">
+		<div class="row">
+			<form role="form" class="form col s12">
+				{% csrf_token %}
+				<div class="row">
+					{% if erro %}
+						<h2>{{ erro }}</h2>
+					{% endif %}
+				</div>
+				<div class="row">
+					<div class="input-field col s6">
+						<div class="row">
+							<label for="nome">Nome</label>
+						</div>
+						<input id="nome" type="text" class="validate" name="nome">
+					</div>
+				</div>
+                <div class="row">
+					<div class="input-field col s6">
+						<div class="row">
+							<label for="sobrenome">Sobrenome</label>
+						</div>
+						<input id="sobrenome" type="text" class="validate" name="sobrenome">
+					</div>
+				</div>
+                <div class="row">
+					<div class="input-field col s6">
+						<div class="row">
+							<label for="email">Email</label>
+						</div>
+						<input id="email" type="text" class="validate" name="email">
+					</div>
+				</div>
+                <div class="row">
+					<div class="input-field col s6">
+						<div class="row">
+							<label for="nome_usuario">Nome de Usuário</label>
+						</div>
+						<input id="nome_usuario" type="text" class="validate" name="nome_usuario">
+					</div>
+				</div>
+                <div class="row">
+					<div class="input-field col s6">
+						<div class="row">
+							<label for="senha">Senha</label>
+						</div>
+						<input id="senha" type="password" class="validate" name="senha">
+					</div>
+				</div>
+				<div class="row">
+		        	<div class="input-field col s6">
+						<div class="row">
+							<label for="confirmar_senha">Confirmar senha</label>
+						</div>
+		          		<input id="confirmar_senha" type="password" class="validate" name="confirmar_senha">
+		        	</div>
+		      	</div>
+		      	<div class="row">
+		      		<div class="col s6">
+		      			<input type="submit" class="btn" formmethod="POST" value="Criar">
+		      		</div>
+		      	</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}
