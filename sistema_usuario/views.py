@@ -14,6 +14,10 @@ def login(request):
 		# POST
 		usuario = request.POST['usuario']
 		senha = request.POST['senha']
+
+		if usuario == "" or senha == "":
+			return render(request, 'sistema_usuario/login.html', {'erro':'Preencha todos os campos.', 'form':form})
+
 		user = authenticate(username=usuario, password=senha)
 		if user is not None:
 			# Fazer Login
@@ -36,6 +40,9 @@ def signup(request):
 		nome_usuario = request.POST['nome_usuario']
 		senha = request.POST['senha']
 		confirmar_senha = request.POST['confirmar_senha']
+
+		if nome == "" or sobrenome == "" or email == "" or nome_usuario == "" or senha == "" or confirmar_senha == "":
+			return render(request, 'sistema_usuario/signup.html', {'erro':'Preencha todos os campos.'})
 		try:
 			validate_email(email)
 		except ValidationError:
