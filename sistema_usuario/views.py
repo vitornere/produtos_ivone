@@ -16,7 +16,7 @@ def login(request):
 		senha = request.POST['senha']
 
 		if usuario == "" or senha == "":
-			return render(request, 'sistema_usuario/login.html', {'erro':'Preencha todos os campos.', 'form':form})
+			return render(request, 'sistema_usuario/login.html', {'erro':'Preencha todos os campos.'})#, 'form':form}) #este form não é reconhecido comoum comando válido
 
 		user = authenticate(username=usuario, password=senha)
 		if user is not None:
@@ -60,9 +60,9 @@ def signup(request):
 			else:
 				return render(request, 'sistema_usuario/signup.html', {'erro':'Algo deu muito errado.'})
 		else:
-			return render(request, 'sistema_usuario/signup.html', {'erro':'As senhas não conferem.'}) 
+			return render(request, 'sistema_usuario/signup.html', {'erro':'As senhas não conferem.'})
 
-	
+
 	else:
 		# GET
 		return render(request, 'sistema_usuario/signup.html', {})
