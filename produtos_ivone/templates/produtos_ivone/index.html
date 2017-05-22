@@ -1,6 +1,12 @@
-{% extends "produtos_ivone/base.html" %}
-{% load bootstrap %}
-
+{% extends "produtos_ivone/base.html" %} 
+{% load staticfiles %} 
 {% block content %}
-	<h1 style="text-align: center;color:purple">Produtos Ivone</h1>
+    <h1 style="text-align: center;color:purple">Produtos Ivone</h1>
+    <div class="carousel">
+        <a class="carousel-item" href="#one!"><img src="{% static 'img/natura.jpg' %}"></a>
+        <a class="carousel-item" href="#three!"><img src="{% static 'img/demillus.png' %}"></a>
+        <a class="carousel-item" href="#two!"><img src="{% static 'img/odorata.png' %}"></a>
+        <a class="carousel-item" href="#four!"><img src="{% static 'img/avon.png' %}"></a>
+        <a class="carousel-item" href="#five!"><img src="{% static 'img/tupperware.png' %}"></a>
+    </div>
 {% endblock %}
