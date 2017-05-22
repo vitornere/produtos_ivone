@@ -1,3 +1,3 @@
 Django>=1.8.5,<1.8.6
-django-bootstrap-form
 whitenoise>=2.0,<2.1
+pytest>=3.0.7
