@@ -18,7 +18,8 @@ def login(request):
         senha = request.POST['senha']
 
         if usuario == "" or senha == "":
-            return render(request, 'sistema_usuario/login.html', {'erro': 'Preencha todos os campos.'})  # , 'form':form}) #este form não é reconhecido comoum comando válido
+            # , 'form':form}) #este form não é reconhecido comoum comando válido
+            return render(request, 'sistema_usuario/login.html', {'erro': 'Preencha todos os campos.'})
 
         user = authenticate(username=usuario, password=senha)
         if user is not None:

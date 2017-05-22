@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
     'produtos_ivone',
     'sistema_usuario',
-    'bootstrapform',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
