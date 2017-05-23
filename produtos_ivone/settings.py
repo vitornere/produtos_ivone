@@ -25,7 +25,7 @@ SECRET_KEY = '1dz$)vz4v0$g610c%=_lgeow-ny9e2p$5(dv6s%x*7s*fkm4w$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['vitornere.pythonanywhere.com']
 
 
 # Application definition
