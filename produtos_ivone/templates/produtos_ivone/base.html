@@ -17,9 +17,14 @@
         <div class="nav-wrapper">
           <a href="#" class="brand-logo">Logo</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Link1</a></li>
-            <li><a href="badges.html">Link2</a></li>
-            <li><a id="login" href="#"><i class="material-icons">perm_identity</i></a></li>
+            <li><a href="#">Link1</a></li>
+            <li><a href="#">Link2</a></li>
+            {% if not user.is_authenticated %}
+              <li><a id="login" href="#"><i class="material-icons">perm_identity</i></a></li>
+              {% include 'sistema_usuario/login.html' %}
+            {% else %}
+              <li><a id="logout" href="{% url 'logout' %}"><i class="material-icons">input</i></a></li>
+            {% endif %}
             </li>
           </ul>
         </div>
@@ -60,6 +65,5 @@
     <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.webui-popover.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/produtos_ivone.js' %}"></script>
-    {% include 'sistema_usuario/login.html' %}
   </body>
 </html>

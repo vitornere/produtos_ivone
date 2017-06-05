@@ -11,6 +11,7 @@ from django.core.exceptions import ValidationError
 
 def login(request):
 	if request.method == 'POST':
+		print("Passou")
 		# POST
 		usuario = request.POST['usuario']
 		senha = request.POST['senha']
@@ -28,7 +29,7 @@ def login(request):
 			return render(request, 'sistema_usuario/login.html', {'erro':'Usuário e/ou Senha inválidos.'})
 	else:
 		# GET
-		return render(request, 'sistema_usuario/login.html', {})
+		return HttpResponseRedirect('/')
 
 
 def signup(request):
