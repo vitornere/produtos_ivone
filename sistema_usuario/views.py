@@ -19,7 +19,7 @@ def login(request):
 
         if usuario == "" or senha == "":
             # , 'form':form}) #este form não é reconhecido comoum comando válido
-            return render(request, 'sistema_usuario/login.html', {'erro': 'Preencha todos os campos.'})
+            return render(request, 'produtos_ivone/index.html', {'erro': 'Preencha todos os campos.'})
 
         user = authenticate(username=usuario, password=senha)
         if user is not None:
@@ -28,7 +28,7 @@ def login(request):
             return HttpResponseRedirect('/')
         else:
             # Autenticação inválida
-            return render(request, 'sistema_usuario/login.html', {'erro': 'Usuário e/ou Senha inválidos.'})
+            return render(request, 'produtos_ivone/index.html', {'erro': 'Usuário e/ou Senha inválidos.'})
     else:
         # GET
         return HttpResponseRedirect('/')
