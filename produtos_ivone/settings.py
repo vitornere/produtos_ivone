@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['vitornere.pythonanywhere.com']
 INSTALLED_APPS = (
     'produtos_ivone',
     'sistema_usuario',
+    'revista',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -102,8 +103,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_URL = '/static/img/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'produtos_ivone/static')
+MEDIA_URL = '/static/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'produtos_ivone/static/media')
 
 LOGIN_REDIRECT_URL = '/'

@@ -14,11 +14,13 @@
 		<p >Boas compras!</p>
 	</div>
 	<div class="carousel col s6">
-	    <a class="carousel-item" href="#one!"><img src="{% static 'img/natura.jpg' %}"></a>
-	    <a class="carousel-item" href="#three!"><img src="{% static 'img/demillus.png' %}"></a>
-	    <a class="carousel-item" href="#two!"><img src="{% static 'img/odorata.png' %}"></a>
-	    <a class="carousel-item" href="#four!"><img src="{% static 'img/avon.png' %}"></a>
-	    <a class="carousel-item" href="#five!"><img src="{% static 'img/tupperware.png' %}"></a>
+	    <a class="carousel-item" href="{% url 'natura' %}"><img src="{% static 'media/img/natura.jpg' %}"></a>
+        <a class="carousel-item" href="{% url 'demillus' %}"><img src="{% static 'media/img/demillus.png' %}"></a>
+        <a class="carousel-item" href="{% url 'odorata' %}"><img src="{% static 'media/img/odorata.png' %}"></a>
+        <a class="carousel-item" href="{% url 'avon' %}"><img src="{% static 'media/img/avon.png' %}"></a>
+        <a class="carousel-item" href="{% url 'tupperware' %}"><img src="{% static 'media/img/tupperware.png' %}"></a>
 	</div>
+
+	{% include 'revista/revista.html' %}
 </div>
 {% endblock %}

@@ -18,6 +18,12 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^$', 'produtos_ivone.views.index', name='index'),
+    url(r'^natura$', 'produtos_ivone.views.natura', name='natura'),
+    url(r'^demillus$', 'produtos_ivone.views.demillus', name='demillus'),
+    url(r'^odorata$', 'produtos_ivone.views.odorata', name='odorata'),
+    url(r'^avon$', 'produtos_ivone.views.avon', name='avon'),
+    url(r'^tupperware$', 'produtos_ivone.views.tupperware', name='tupperware'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('sistema_usuario.urls')),
+    url(r'', include('revista.urls')),
 ]

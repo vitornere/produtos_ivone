@@ -20,3 +20,9 @@ $(document).ready(function(){
         $('#login').click();
     }
 });
+
+$(document).ready(function(){
+     $('.modal').modal();
+});
+
+ $('#revista').modal('open')
