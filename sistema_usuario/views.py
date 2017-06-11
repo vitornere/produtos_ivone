@@ -71,3 +71,31 @@ def signup(request):
 def logout(request):
 	auth_logout(request)
 	return HttpResponseRedirect('/')
+
+def perfil(request):
+	if request.method == 'POST':
+		nome = request.POST['nome']
+		sobrenome = request.POST['sobrenome']
+		email = request.POST['email']
+		nome_usuario = request.POST['nome_usuario']
+		if nome == "" or sobrenome == "" or email == "" or nome_usuario == "":
+			return render(request, 'sistema_usuario/perfil.html', {'erro':'Preencha todos os campos.'})
+		try:
+			validate_email(email)
+		except ValidationError:
+			return render(request, 'sistema_usuario/perfil.html', {'erro':'Email inválido'})
+
+		# Atualiza Cadastro
+		user = request.user
+		user.first_name = nome
+		user.last_name = sobrenome
+		user.email = email
+		user.nome_usuario = nome_usuario
+		user.save()
+
+		return render(request, 'sistema_usuario/perfil.html')
+	else:
+		if request.user.is_authenticated():
+			return render(request, 'sistema_usuario/perfil.html')
+		else:
+			return HttpResponseRedirect('/')
