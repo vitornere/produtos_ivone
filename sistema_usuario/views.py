@@ -10,6 +10,7 @@ from django.core.exceptions import ValidationError
 
 # Create your views here.
 
+
 def login(request):
     if request.method == 'POST':
         print("Passou")

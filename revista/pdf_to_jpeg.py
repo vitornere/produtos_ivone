@@ -14,17 +14,17 @@ while True:
     istream = pdf.find("stream", i)
     if istream < 0:
         break
-    istart = pdf.find(startmark, istream, istream+20)
+    istart = pdf.find(startmark, istream, istream + 20)
     if istart < 0:
-        i = istream+20
+        i = istream + 20
         continue
     iend = pdf.find("endstream", istart)
     if iend < 0:
         raise Exception("Didn't find end of stream!")
-    iend = pdf.find(endmark, iend-20)
+    iend = pdf.find(endmark, iend - 20)
     if iend < 0:
         raise Exception("Didn't find end of JPG!")
-     
+
     istart += startfix
     iend += endfix
     print "JPG %d from %d to %d" % (njpg, istart, iend)
@@ -32,6 +32,6 @@ while True:
     jpgfile = file("jpg%d.jpg" % njpg, "wb")
     jpgfile.write(jpg)
     jpgfile.close()
-     
+
     njpg += 1
     i = iend

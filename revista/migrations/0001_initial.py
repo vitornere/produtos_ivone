@@ -14,7 +14,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Revista',
             fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('id', models.AutoField(auto_created=True,
+                                        verbose_name='ID', primary_key=True, serialize=False)),
                 ('nome', models.CharField(max_length=99)),
                 ('data', models.DateTimeField(default=django.utils.timezone.now)),
                 ('arquivo', models.FileField(upload_to='revistas/')),
