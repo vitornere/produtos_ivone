@@ -93,3 +93,5 @@ ENV/
 
 #SQLite
 *.sqlite3
+
+.vscode/

@@ -2,6 +2,7 @@
 import os
 import sys
 
+
 if __name__ == "__main__":
     sys.path.append('src')
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "produtos_ivone.settings")

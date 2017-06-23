@@ -20,12 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1dz$)vz4v0$g610c%=_lgeow-ny9e2p$5(dv6s%x*7s*fkm4w$'
+with open('key.txt') as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['vitornere.pythonanywhere.com']
+ALLOWED_HOSTS = ['vitornere.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -78,14 +79,14 @@ WSGI_APPLICATION = 'produtos_ivone.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #    'NAME': 'produtos_ivone',
+    #    'USER': 'produtos_ivone',
+    #    'PASSWORD': 'produtos_ivone',
+    #    'HOST': 'db',
+    #    'PORT': '5432',
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
-    },
-    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
