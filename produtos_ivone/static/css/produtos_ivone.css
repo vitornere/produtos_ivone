@@ -1,5 +1,4 @@
 /* Cabeçalhos de login e sign up */
-
 h3#linha_cadastro{
   font-weight: 500;
   font-size: 2.92rem;
@@ -21,4 +20,9 @@ h3#linha_login{
   position: relative;
   left: 188px;
 
+}
+
+#div-revista {
+  position: absolute;
+  left: 35px;
 }
