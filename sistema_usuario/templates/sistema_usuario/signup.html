@@ -1,7 +1,9 @@
 {% extends "produtos_ivone/base.html" %}
 
 {% block content %}
-<h1 style="text-align:center">Cadastro</h1>
+
+<h3 id="linha_cadastro">Cadastro</h3>
+
 
 <div class="container">
     <div class="row">
@@ -55,12 +57,15 @@
                     <input type="submit" class="btn" formmethod="POST" value="Criar">
                 </div>
                 <div class="col s6">
+                  <div class="red-text text-lighten-1"
                     {% if erro %}
-                    <h2>{{ erro }}</h2>
+                      <h2>{{ erro }}</h2>
                     {% endif %}
+                  </div>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
 {% endblock %}

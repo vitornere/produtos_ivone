@@ -25,7 +25,7 @@ SECRET_KEY = '1dz$)vz4v0$g610c%=_lgeow-ny9e2p$5(dv6s%x*7s*fkm4w$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['vitornere.pythonanywhere.com']
 
 
 # Application definition
@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
     'produtos_ivone',
     'sistema_usuario',
-    'bootstrapform',
+    'revista',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -103,6 +103,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'produtos_ivone/static')
+MEDIA_URL = '/static/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'produtos_ivone/static/media')
 
 LOGIN_REDIRECT_URL = '/'

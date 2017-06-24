@@ -1,39 +1,37 @@
-{% extends "produtos_ivone/base.html" %}
-
-{% block content %}
-	<h1 style="text-align:center">Login</h1>
-
-	<div class="container">
-		<div class="row">
-			<form role="form" class="form col s12">
-				{% csrf_token %}
-				<div class="row">
-					{% if erro %}
-						<h2>{{ erro }}</h2>
-					{% endif %}
-				</div>
-				<div class="row">
-					<div class="input-field col s6">
-						<div class="row">
-							<label for="usuario">Usuário</label>
+<div id="login-form" class="webui-popover-content">
+	<form role="form" class="form col s12 js-signin signin" action="{% url 'login' %}">
+		{% csrf_token %}
+		<div class="input-field">
+			<input id="usuario" type="text" class="validate" name="usuario" placeholder="Nome de Usuário">
+		</div>
+		<div class="input-field">
+			<input id="senha" type="password" class="validate" name="senha" placeholder="Senha">
+		</div>
+		<div class="row center-align">
+			{% if erro %}
+				<div class="row" id="erro-login">
+					<div class="col s12">
+						<div class="red-text text-lighten-1">
+							
+								<h2>{{ erro }}</h2>
+							
 						</div>
-						<input id="usuario" type="text" class="validate" name="usuario">
 					</div>
 				</div>
-				<div class="row">
-		        	<div class="input-field col s6">
-						<div class="row">
-							<label for="senha">Senha</label>
-						</div>
-		          		<input id="senha" type="password" class="validate" name="senha">
-		        	</div>
-		      	</div>
-		      	<div class="row">
-		      		<div class="col s6">
-		      			<input type="submit" class="btn" formmethod="POST" value="login">
-		      		</div>
-		      	</div>
-			</form>
+			{% endif %}
+			<div class="row">
+				<div class="col s12">
+					<button class="btn waves-effect waves-light" type="submit" name="action" formmethod="POST" value="login">
+						Login
+						<i class="material-icons right">send</i>
+					</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<a href="{% url 'signup' %}" class="waves-effect waves-light btn">Requisitar Acesso</a>
+				</div>
+			</div>
 		</div>
-	</div>
-{% endblock %}
+	</form>
+</div>
