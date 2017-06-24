@@ -1,11 +1,24 @@
 {% extends "produtos_ivone/base.html" %} 
 {% load staticfiles %} 
 {% block content %}
-    <div class="carousel">
-        <a class="carousel-item" href="#one!"><img src="{% static 'img/natura.jpg' %}"></a>
-        <a class="carousel-item" href="#three!"><img src="{% static 'img/demillus.png' %}"></a>
-        <a class="carousel-item" href="#two!"><img src="{% static 'img/odorata.png' %}"></a>
-        <a class="carousel-item" href="#four!"><img src="{% static 'img/avon.png' %}"></a>
-        <a class="carousel-item" href="#five!"><img src="{% static 'img/tupperware.png' %}"></a>
-    </div>
+<div class="row">
+	<div class="col s6" style="font-family:monospace;">
+		<h1>Bem vindo!</h1>
+		<p style="margin-right: 30px;">
+			Este é o seu catálogo eletrônico web de produtos de beleza, você pode escolher qualquer um dos catálogos disponíveis clicando no icone da marca de sua preferencia para visualizar os produtos.
+			Para comprar um produto bassta entrar em contato com a revendedora informando o código do produto e solicitar a compra do mesmo clicando em contato.
+		</p>
+		<p>
+			Apenas usuários cadastrados no site podem fazer a solicitação do produto. Para cadastra clique em <a href="/signup/">aqui</a> ou selecione o icone do canto superior direito.
+		</p>
+		<p >Boas compras!</p>
+	</div>
+	<div class="carousel col s6">
+	    <a class="carousel-item" href="#one!"><img src="{% static 'img/natura.jpg' %}"></a>
+	    <a class="carousel-item" href="#three!"><img src="{% static 'img/demillus.png' %}"></a>
+	    <a class="carousel-item" href="#two!"><img src="{% static 'img/odorata.png' %}"></a>
+	    <a class="carousel-item" href="#four!"><img src="{% static 'img/avon.png' %}"></a>
+	    <a class="carousel-item" href="#five!"><img src="{% static 'img/tupperware.png' %}"></a>
+	</div>
+</div>
 {% endblock %}
