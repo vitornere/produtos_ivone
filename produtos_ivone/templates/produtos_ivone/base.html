@@ -1,7 +1,6 @@
 {% load staticfiles %}
 <html>
   <head>
-    <title>Produtos Ivone</title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/materialize.min.css' %} " media="screen,projection"/>
     <link rel="stylesheet" href="{% static 'css/materialize.css' %}"/>
@@ -15,10 +14,12 @@
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-          <a href="" class="brand-logo">Logo</a>
+          <a href="" class="brand-logo center">
+            <img src="/static/img/center_logo.png"/ style="height: 99%;" align="middle">
+          </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#">Link1</a></li>
-            <li><a href="#">Link2</a></li>
+            <li><a href="#">Contato</a></li>
+            <!-- <li><a href="#"></a></li> -->
             {% if not user.is_authenticated %}
               <li><a id="login" href="#"><i class="material-icons">perm_identity</i></a></li>
               {% include 'sistema_usuario/login.html' %}

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate
@@ -8,7 +9,6 @@ from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 
 # Create your views here.
-
 
 def login(request):
     if request.method == 'POST':
