@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %} " media="screen,projection"/>
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/jquery.webui-popover.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/produtos_ivone.css' %}"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body style="background: url('/static/img/backgroundGray.jpg') 50% 0 no-repeat fixed">
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo center">
+            <img src="/static/img/center_logo.png"/ style="height: 99%;" align="middle">
+          </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Contato</a></li>
+            <!-- <li><a href="#"></a></li> -->
+            {% if not user.is_authenticated %}
+              <li><a id="login" href="#"><i class="material-icons">perm_identity</i></a></li>
+              {% include 'sistema_usuario/login.html' %}
+            {% else %}
+              <li><a id="logout" href="{% url 'logout' %}"><i class="material-icons">input</i></a></li>
+            {% endif %}
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <main>
+    <div class="header row"> </div>
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+    </main>
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text"></h5>
+            <p class="grey-text text-lighten-4">Para mais informações entre em contato.</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="https://github.com/vitornere/produtos_ivone/wiki">Wiki</a></li>
+              <li><a class="grey-text text-lighten-3" href="https://github.com/vitornere/produtos_ivone">Repositório</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2017 Copyright Text
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.webui-popover.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/produtos_ivone.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ViewerJS/compatibility.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ViewerJS/pdf.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ViewerJS/pdf.worker.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ViewerJS/pdfjsversion.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ViewerJS/text_layer_builder.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ViewerJS/ui_utils.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ViewerJS/ui_utils.js' %}"></script>
+  </body>
+</html>
