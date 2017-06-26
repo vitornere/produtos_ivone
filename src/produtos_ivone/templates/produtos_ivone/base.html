@@ -24,6 +24,7 @@
               <li><a id="login" href="#"><i class="material-icons">perm_identity</i></a></li>
               {% include 'sistema_usuario/login.html' %}
             {% else %}
+              <li>Olá, {{user.username}}!</li>
               <li><a id="logout" href="{% url 'logout' %}"><i class="material-icons">input</i></a></li>
             {% endif %}
             </li>

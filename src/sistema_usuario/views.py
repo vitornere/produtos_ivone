@@ -7,8 +7,13 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.models import User
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+@login_required
+def home(request):
+    return render(request, 'sistema_usuario/home.html')
 
 
 def login(request):

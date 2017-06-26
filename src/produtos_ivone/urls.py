@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^odorata$', odorata, name='odorata'),
     url(r'^avon$', avon, name='avon'),
     url(r'^tupperware$', tupperware, name='tupperware'),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('sistema_usuario.urls')),
     url(r'', include('revista.urls')),
