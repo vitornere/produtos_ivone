@@ -1,5 +1,5 @@
 import pytest
 
 
-def test_user():
+def test_usuario():
     pass
