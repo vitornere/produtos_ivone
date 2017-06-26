@@ -30,8 +30,8 @@ class TestViews():
     def test_post_login_with_sucess(self, client, db):
         response = client.post(
             '/login/', {'usuario': 'joao', 'senha': 'joao123'})
-        print(response)
+        assert response.status_code == 200
 
     def test_post_login_without_args(self, client, db):
         response = client.post('/login/', {'usuario': 'joao', 'senha': ''})
-        assert response
+        assert response.status_code == 200
