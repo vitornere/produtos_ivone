@@ -13,14 +13,12 @@ from django.core.exceptions import ValidationError
 
 def login(request):
     if request.method == 'POST':
-        print("Passou")
         # POST
         usuario = request.POST['usuario']
         senha = request.POST['senha']
 
         if usuario == "" or senha == "":
-            # , 'form':form}) #este form não é reconhecido comoum comando válido
-            return render(request, 'produtos_ivone/index.html', {'erro': 'Preencha todos os campos.'})
+            return render(request, 'sistema_usuario/login.html', {'erro': 'Preencha todos os campos.'})
 
         user = authenticate(username=usuario, password=senha)
         if user is not None:
@@ -29,10 +27,10 @@ def login(request):
             return HttpResponseRedirect('/')
         else:
             # Autenticação inválida
-            return render(request, 'produtos_ivone/index.html', {'erro': 'Usuário e/ou Senha inválidos.'})
+            return render(request, 'sistema_usuario/login.html', {'erro': 'Usuário e/ou Senha inválidos.'})
     else:
         # GET
-        return HttpResponseRedirect('/')
+        return render(request, 'sistema_usuario/login.html', {})
 
 
 def signup(request):
@@ -74,3 +72,57 @@ def signup(request):
 def logout(request):
     auth_logout(request)
     return HttpResponseRedirect('/')
+
+
+def perfil(request):
+    if request.method == 'POST':
+        return HttpResponseRedirect('/editar/')
+    else:
+        if request.user.is_authenticated():
+            return render(request, 'sistema_usuario/perfil.html')
+        else:
+            return HttpResponseRedirect('/')
+
+
+def editar(request):
+    if request.method == 'POST':
+        nome = request.POST['nome']
+        sobrenome = request.POST['sobrenome']
+        email = request.POST['email']
+        nome_usuario = request.POST['nome_usuario']
+        senha = request.POST['senha']
+        confirmar_senha = request.POST['confirmar_senha']
+
+        if nome == "" or sobrenome == "" or email == "" or nome_usuario == "":
+            return render(request, 'sistema_usuario/editar.html', {'erro': 'Preencha todos os campos.'})
+        try:
+            validate_email(email)
+        except ValidationError:
+            return render(request, 'sistema_usuario/editar.html', {'erro': 'Email inválido'})
+
+        # Atualiza Cadastro
+        if senha != confirmar_senha:
+            return render(request, 'sistema_usuario/editar.html', {'erro': 'As senhas não conferem.'})
+        else:
+            if senha == "" and confirmar_senha == "":
+                user = request.user
+                user.first_name = nome
+                user.last_name = sobrenome
+                user.email = email
+                user.nome_usuario = nome_usuario
+                user.save()
+            else:
+                user = request.user
+                user.first_name = nome
+                user.last_name = sobrenome
+                user.email = email
+                user.nome_usuario = nome_usuario
+                user.set_password(senha)
+                user.save()
+
+        return render(request, 'sistema_usuario/editar.html')
+    else:
+        if request.user.is_authenticated():
+            return render(request, 'sistema_usuario/editar.html')
+        else:
+            return HttpResponseRedirect('/')
