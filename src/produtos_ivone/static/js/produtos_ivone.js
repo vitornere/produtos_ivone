@@ -10,7 +10,7 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-	var carousel_interval = 1000;
+	var carousel_interval = 8000;
 	$('.carousel').carousel();
 	var int;
 	function run(){
