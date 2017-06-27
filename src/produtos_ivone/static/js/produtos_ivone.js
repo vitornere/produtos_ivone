@@ -2,7 +2,7 @@ $('.modal').modal();
 $('#login').webuiPopover({url:'#login-form'});
 $('#revista').modal('open')
 
-$("#test p").delay(1000).animate({ opacity: 1 }, 700);​
+// $("#test p").delay(1000).animate({ opacity: 1 }, 700);​
 
 $(document).ready(function(){
     if($('#erro-login').is(":hidden")) {
