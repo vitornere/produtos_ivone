@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 def index(request):
     revista = None
     return render(request, 'produtos_ivone/index.html', {'revista': revista})
