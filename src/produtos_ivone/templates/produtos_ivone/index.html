@@ -1,19 +1,30 @@
 {% extends "produtos_ivone/base.html" %} 
 {% load staticfiles %} 
 {% block content %}
-<div class="row">
-	
-	{% if not revista %}
-		<div class="col s6" style="font-family:monospace;">
-			<h1>Bem vindo!</h1>
-			<p style="margin-right: 30px;">
-				Este é o seu catálogo eletrônico web de produtos de beleza, você pode escolher qualquer um dos catálogos disponíveis clicando no icone da marca de sua preferencia para visualizar os produtos.
-				Para comprar um produto bassta entrar em contato com a revendedora informando o código do produto e solicitar a compra do mesmo clicando em contato.
+<div class="container">
+	<div class="row">	
+		<a href="/" class="center">
+			<img class="responsive-img" src="/static/img/logoConsultora.png" align="middle"/>
+		</a>
+		<div id="paragraph" class="col s12" style="font-family:monospace;">
+			<br>
+			<p align="justify" style="margin-right: 30px;">
+				&nbsp&nbsp&nbsp&nbspEsta é sua consultora online de produtos de beleza, você pode escolher qualquer um dos catálogos disponíveis clicando em um dos icones das marcas abaixo de sua preferencia para visualizar os produtos.
+				Para comprar um produto basta entrar em contato com a revendedora informando o código do produto e solicitar a compra do mesmo clicando em contato.
 			</p>
-			<p>
+			<p align="justify" style="margin-right: 30px;">
 				Apenas usuários cadastrados no site podem fazer a solicitação do produto. Para cadastra clique em <a href="/signup/">aqui</a> ou selecione o icone do canto superior direito.
 			</p>
 			<p >Boas compras!</p>
+		<br>
+		</div>
+	{% if not revista %}
+		<div class="carousel col s12">
+		    <a class="carousel-item" href="{% url 'natura' %}"><img src="{% static 'media/img/natura.jpg' %}"></a>
+	        <a class="carousel-item" href="{% url 'demillus' %}"><img src="{% static 'media/img/demillus.png' %}"></a>
+	        <a class="carousel-item" href="{% url 'odorata' %}"><img src="{% static 'media/img/odorata.png' %}"></a>
+	        <a class="carousel-item" href="{% url 'avon' %}"><img src="{% static 'media/img/avon.png' %}"></a>
+	        <a class="carousel-item" href="{% url 'tupperware' %}"><img src="{% static 'media/img/tupperware.png' %}"></a>
 		</div>
 	{% else %}
 		<div class="col s6">
@@ -21,14 +32,15 @@
 				{% include 'revista/revista.html' %}
 			</div>
 		</div>
+		<div id="left-align" class="carousel col s12">
+		    <a class="carousel-item" href="{% url 'natura' %}"><img src="{% static 'media/img/natura.jpg' %}"></a>
+	        <a class="carousel-item" href="{% url 'demillus' %}"><img src="{% static 'media/img/demillus.png' %}"></a>
+	        <a class="carousel-item" href="{% url 'odorata' %}"><img src="{% static 'media/img/odorata.png' %}"></a>
+	        <a class="carousel-item" href="{% url 'avon' %}"><img src="{% static 'media/img/avon.png' %}"></a>
+	        <a class="carousel-item" href="{% url 'tupperware' %}"><img src="{% static 'media/img/tupperware.png' %}"></a>
+		</div>
 	{% endif %}
 	
-	<div class="carousel col s6">
-	    <a class="carousel-item" href="{% url 'natura' %}"><img src="{% static 'media/img/natura.jpg' %}"></a>
-        <a class="carousel-item" href="{% url 'demillus' %}"><img src="{% static 'media/img/demillus.png' %}"></a>
-        <a class="carousel-item" href="{% url 'odorata' %}"><img src="{% static 'media/img/odorata.png' %}"></a>
-        <a class="carousel-item" href="{% url 'avon' %}"><img src="{% static 'media/img/avon.png' %}"></a>
-        <a class="carousel-item" href="{% url 'tupperware' %}"><img src="{% static 'media/img/tupperware.png' %}"></a>
 	</div>
 </div>
 {% endblock %}
