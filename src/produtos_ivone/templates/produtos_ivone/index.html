@@ -3,11 +3,10 @@
 {% block content %}
 <div class="container">
 	<div class="row">	
-	{% if not revista %}
 		<a href="/" class="center">
 			<img class="responsive-img" src="/static/img/logoConsultora.png" align="middle"/>
 		</a>
-		<div class="col s12" style="font-family:monospace;">
+		<div id="test" class="col s12" style="font-family:monospace;">
 			<br>
 			<h3 align="center">Bem vindo!</h3>
 			<p align="justify" style="margin-right: 30px;">
@@ -19,14 +18,7 @@
 			</p>
 			<p >Boas compras!</p>
 		</div>
-	{% else %}
-		<div class="col s12">
-			<div id="div-revista">
-				{% include 'revista/revista.html' %}
-			</div>
-		</div>
-	{% endif %}
-	
+	{% if not revista %}
 		<div class="carousel col s12">
 		    <a class="carousel-item" href="{% url 'natura' %}"><img src="{% static 'media/img/natura.jpg' %}"></a>
 	        <a class="carousel-item" href="{% url 'demillus' %}"><img src="{% static 'media/img/demillus.png' %}"></a>
@@ -34,6 +26,21 @@
 	        <a class="carousel-item" href="{% url 'avon' %}"><img src="{% static 'media/img/avon.png' %}"></a>
 	        <a class="carousel-item" href="{% url 'tupperware' %}"><img src="{% static 'media/img/tupperware.png' %}"></a>
 		</div>
+	{% else %}
+		<div class="col s12">
+			<div id="div-revista">
+				{% include 'revista/revista.html' %}
+			</div>
+		</div>
+		<div id="left-align" class="carousel col s12">
+			    <a class="carousel-item" href="{% url 'natura' %}"><img src="{% static 'media/img/natura.jpg' %}"></a>
+		        <a class="carousel-item" href="{% url 'demillus' %}"><img src="{% static 'media/img/demillus.png' %}"></a>
+		        <a class="carousel-item" href="{% url 'odorata' %}"><img src="{% static 'media/img/odorata.png' %}"></a>
+		        <a class="carousel-item" href="{% url 'avon' %}"><img src="{% static 'media/img/avon.png' %}"></a>
+		        <a class="carousel-item" href="{% url 'tupperware' %}"><img src="{% static 'media/img/tupperware.png' %}"></a>
+			</div>
+	{% endif %}
+	
 	</div>
 </div>
 {% endblock %}
